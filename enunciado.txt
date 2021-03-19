@@ -1,0 +1,43 @@
+En el presente trabajo usted deberá auditar la implementación de los sistemas de creación, actualización, acceso, transmisión y recuperación de contraseñas de 2 sitios distintos (uno chileno y uno perteneciente a la comunidad europea), automatizando el proceso mediante selenium (Enlaces a un sitio externo.) (se permitirá además apoyar su código con la librería pyautoGUI (Enlaces a un sitio externo.)).
+
+Para esto, deberá implementar un código en Python que automatice lo siguiente:
+
+1.- Creación de una cuenta
+
+2.- Inicio de sesión (permitirá hacer ataques por fuerza bruta)
+
+3.- Restablecimiento de contraseña (no requiere login del usuario)
+
+4.- Modificación de contraseña (requiere login del usuario)
+
+Luego se le pide confeccionar un informe y contestar las siguientes preguntas para cada uno de los dos sitios (incluya screenshots y material que permita comprobar los datos obtenidos):
+
+1.- ¿Cuál es el largo (L) mínimo y máximo de la contraseña a utilizar? ¿Cuál es la máxima base (W) que permite utilizar el sitio? (recuerde probar emojis, UTF-8, Unicode, etc)
+
+2.- ¿El largo mínimo/máximo está restringido desde el cliente? En caso de ser así, deshabilite el límite de la password y verifique si el server permite registrarse con una password de tamaño restringido.
+
+3.- ¿Existe comprobación de robustez de la pass al momento de registrarse? En caso de ser así, deshabilite esta opción y verifique si el server acepta el uso de contraseñas débiles.
+
+4.- ¿Se transmite la contraseña en texto plano?
+
+5.- ¿En qué variable se transmite al server el user y password? (Variable utilizada en GET o POST, no en el HTML)
+
+6.- ¿Qué información se solicita para restablecer la contraseña?
+
+7.- ¿Cómo opera el servicio de reestablecer contraseña? (se envía la existente, se crea una temporal o el usuario resetea la antigua por una nueva)
+
+8.- ¿En el proceso de reseteo se expone información privada del usuario? ¿La información expuesta está completa o de forma parcial (n***@gmail.com)?
+
+9.- En caso de generar una password temporal. ¿Qué patrón tiene la nueva contraseña al resetearla? Automatice 10 reseteos de la contraseña para obtener el patrón de las nuevas contraseñas.
+
+10.- ¿El sitio recuerda contraseñas antiguas? ¿Cuántas? ¿Es posible eliminar esas passwords de la memoria del server (se pueden sobrescribir)?
+
+11.- ¿El sitio es susceptible a ataques por fuerza bruta? ¿Cómo lo evita? Pruebe automatizando 100 accesos (recuerde que su cuenta se podría inhabilitar o bloquear, por lo que deberá realizar este proceso al final)
+
+12.- ¿Existe la opción de eliminar su cuenta? En caso de ser así, ¿Queda algún indicio de la existencia de su cuenta?
+
+13.- ¿Los resultados obtenidos se condicen con las políticas de privacidad y seguridad del sitio?
+
+Sus códigos deberán ser subidos a la plataforma GitHub, y adjuntar el link en el informe (y colocarlo como comentario en su tarea en Canvas), el cual deberá ser subido a Canvas en formato pdf a más tardar la fecha indicada. Además, deberá completar el excel con los sitios a auditar, junto a la información recopilada, siguiendo el mismo esquema utilizado en el ejemplo del excel. Este punto es muy importante, ya que de esto depende que el sitio sólo lo audite usted y no el resto. Dado lo anterior, anotar el sitio en el excel es el primer paso que debe realizar. Recuerde revisar si el dominio que usted eligió estaba previamente en el excel. En el caso que existan 2 alumnos que auditaron el mismo sitio, se evaluará sólo al que lo eligió primero (se verificará con el sistema de versionamiento de gdocs).
+
+Cualquier duda que tenga sobre el informe contacte a sus ayudantes. Durante las ayudantías se realizarán ejemplos de informes para que no le queden dudas sobre cómo deberá realizarlos.
