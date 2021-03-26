@@ -8,7 +8,7 @@ import time
 userName = "U53rN4M3"
 passWord = "password123"
 
-path = "C:\\Users\\Daniela\\Desktop\\Tarea 1 criptologia\\chromedriver.exe"
+path = "C:\\Users\\Daniela\\Desktop\\Tarea-1-criptologia\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
 options.add_argument('--disable-extensions')

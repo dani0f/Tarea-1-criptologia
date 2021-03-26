@@ -6,10 +6,10 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 userName = "U53rN4M3"
-passWord = "hola1234"
-passWordNew = "password1234"
+passWord = "password1234"
+passWordNew = "password12345"
 
-path = "C:\\Users\\Daniela\\Desktop\\Tarea 1 criptologia\\chromedriver.exe"
+path = "C:\\Users\\Daniela\\Desktop\\Tarea-1-criptologia\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
 options.add_argument('--disable-extensions')

@@ -7,7 +7,7 @@ import time
 
 userNameORemail = "U53rN4M3"
 
-path = "C:\\Users\\Daniela\\Desktop\\Tarea 1 criptologia\\chromedriver.exe"
+path = "C:\\Users\\Daniela\\Desktop\\Tarea-1-criptologia\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
 options.add_argument('--disable-extensions')
@@ -24,7 +24,7 @@ def recovery(userNameORemail):
             EC.presence_of_element_located((By.LINK_TEXT,"Forgot password?"))        
         )
         element.click()
-        userName
+        
         element = WebDriverWait(driver,10).until(
             EC.presence_of_element_located((By.XPATH,"/html/body/div/div[1]/div/div[1]/div[2]/div/div/div/div[1]/div/div/input"))        
         )
