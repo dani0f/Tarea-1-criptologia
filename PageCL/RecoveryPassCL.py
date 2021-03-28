@@ -5,10 +5,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-userName = 'u53rN4Me'
-#username no key sensitive?
-email ="Tarea1Intento1@yopmail.com"
-passWord = "password123"
+
+email ="JuanitoPerezTarea2@yopmail.com"
+
 
 path = "C:\\Users\\Daniela\\Desktop\\Tarea-1-criptologia\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
@@ -17,34 +16,39 @@ options.add_argument('--disable-extensions')
 
 driver = webdriver.Chrome(path,chrome_options=options )
 
-driver.get("https://mariakawaii.cl")
+driver.get("https://tibiachile.cl")
 
 
-def recovery(userName):
-    link = driver.find_element_by_link_text("ACCEDER")
+def recovery(email):
+    link = driver.find_element_by_xpath("/html/body/div[2]/div/div/a")
     link.click()
 
     try: 
-        #navegate 1
+        #navegate
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.LINK_TEXT,"¿Olvidaste la contraseña?"))        
+            EC.presence_of_element_located((By.LINK_TEXT,"Entrar"))        
         )
         element.click()
-        #password
+        #click
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.ID,"user_login"))
+            EC.presence_of_element_located((By.LINK_TEXT,"¿Ha olvidado su contraseña?"))
         )
-        element.send_keys(userName)
-        #button confirm
+        element.click()
+        #email
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.XPATH,"/html/body/div[1]/main/div/div/div/div/div/form/p[3]/button"))        
+            EC.presence_of_element_located((By.ID,"email"))        
+        )
+        element.send_keys(email)
+        #button
+        element = WebDriverWait(driver,10).until(
+            EC.presence_of_element_located((By.XPATH,"/html/body/div/div[1]/div[2]/div[2]/form/fieldset/p[2]/input"))        
         )
         element.click()
         
     except:
         driver.quit()
 
-recovery(userName)
+recovery(email)
 
 
 

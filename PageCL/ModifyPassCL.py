@@ -5,13 +5,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-userName = 'u53rN4Me'
-#username no key sensitive?
-firstName="Maria"
-lastName="kawai"
-email ="Tarea1Intento1@yopmail.com"
-passWord = "Pa$$w0rd12345AAAAA"
-passWordNew = "Pa$$w0rd12345AAAAAA"
+
+email ="modifypasstarea0@yopmail.com"
+passWord = "password123"
+passWordNew = "password1234"
 
 path = "C:\\Users\\Daniela\\Desktop\\Tarea-1-criptologia\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
@@ -20,69 +17,68 @@ options.add_argument('--disable-extensions')
 
 driver = webdriver.Chrome(path,chrome_options=options )
 
-driver.get("https://mariakawaii.cl")
+driver.get("https://tibiachile.cl")
 
 
-def modify(fistName,lastName,userName,passWord,passWordNew):
-    #by css_selector
-    link = driver.find_element_by_link_text("ACCEDER")
+
+def modify(email,passWord,passWordNew):
+    link = driver.find_element_by_xpath("/html/body/div[2]/div/div/a")
     link.click()
 
     try: 
-        #username
+        #navegate
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.ID,"username"))        
+            EC.presence_of_element_located((By.LINK_TEXT,"Entrar"))        
         )
-        element.send_keys(userName)
-        #password
+        element.click()
+        #email
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.ID,"password"))
+            EC.presence_of_element_located((By.ID,"email"))        
+        )
+        element.send_keys(email)
+        #pass
+        element = WebDriverWait(driver,10).until(
+            EC.presence_of_element_located((By.ID,"passwd"))
         )
         element.send_keys(passWord)
-        #button confirm
+        #send
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/div/div[1]/div/div[2]/div/div[1]/div/form/p[3]/button"))        
+            EC.presence_of_element_located((By.XPATH,"/html/body/div/div[1]/div[2]/div[2]/form[2]/fieldset/div/p[4]/input[2]"))        
         )
         element.click()
-        #navegate 1
+        #sendi
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/header/div/div[2]/div[1]/div[4]/ul/li[1]/a"))        
+            EC.presence_of_element_located((By.LINK_TEXT,"Mis datos personales"))        
         )
         element.click()
-        #navegate 2 
+
+        #send
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.XPATH,"/html/body/div[1]/main/div/div/div/div/div/div/ul/li[5]/a"))        
-        )
-        element.click()
-        #names
-        element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.ID,"account_first_name"))        
-        )
-        element.send_keys(firstName)
-        element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.ID,"account_last_name"))        
-        )
-        element.send_keys(lastName)
-        #passwords
-        element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.ID,"password_current"))        
+            EC.presence_of_element_located((By.ID,"old_passwd"))        
         )
         element.send_keys(passWord)
+        #send
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.ID,"password_1"))        
+            EC.presence_of_element_located((By.ID,"passwd"))        
         )
         element.send_keys(passWordNew)
+        #send
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.ID,"password_2"))        
+            EC.presence_of_element_located((By.ID,"confirmation"))        
         )
-        #confirm
         element.send_keys(passWordNew)
+        #send
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.XPATH,"/html/body/div[1]/main/div/div/div/div/div/div/form/p[5]/button"))        
+            EC.presence_of_element_located((By.XPATH,"/html/body/div/div[1]/div[2]/div[2]/form/fieldset/p[9]/input"))        
         )
         element.click()
+        
+        
+        
+        
+        
         
     except:
         driver.quit()
 
-modify(firstName,lastName,userName,passWord,passWordNew)
+modify(email,passWord,passWordNew)
