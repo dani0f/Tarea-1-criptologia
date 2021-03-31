@@ -1,4 +1,3 @@
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -6,7 +5,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-email ="base64@yopmail.com"
+email ="TareaCintento0@yopmail.com"
+#Password se genera aletoriamente
+
 path = "C:\\Users\\Daniela\\Desktop\\Codigos\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
@@ -15,20 +16,24 @@ options.add_argument('--disable-extensions')
 driver = webdriver.Chrome(path,chrome_options=options )
 
 driver.get("https://tibiachile.cl")
-def recovery10(email):
+
+from random import choice
+
+length = 7
+values = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<=>@#%&+"
+
+
+def login(email):
     link = driver.find_element_by_xpath("/html/body/div[2]/div/div/a")
     link.click()
-
     try: 
-        for _ in range(10):
+        for i in range(100):
+            p = ""
+            p = p.join([choice(values) for i in range(length)])
+            print("pass:",p,i)
             #navegate
             element = WebDriverWait(driver,10).until(
                 EC.presence_of_element_located((By.LINK_TEXT,"Entrar"))        
-            )
-            element.click()
-            #click
-            element = WebDriverWait(driver,10).until(
-                EC.presence_of_element_located((By.LINK_TEXT,"¿Ha olvidado su contraseña?"))
             )
             element.click()
             #email
@@ -36,15 +41,20 @@ def recovery10(email):
                 EC.presence_of_element_located((By.ID,"email"))        
             )
             element.send_keys(email)
-            #button
+            #pass
             element = WebDriverWait(driver,10).until(
-                EC.presence_of_element_located((By.XPATH,"/html/body/div/div[1]/div[2]/div[2]/form/fieldset/p[2]/input"))        
+                EC.presence_of_element_located((By.ID,"passwd"))
+            )
+            element.send_keys(p)
+            #send
+            element = WebDriverWait(driver,10).until(
+                EC.presence_of_element_located((By.XPATH,"/html/body/div/div[1]/div[2]/div[2]/form[2]/fieldset/div/p[4]/input[2]"))        
             )
             element.click()
-            #Quitar el comentario siguiente para esperar las 6 horas
-            #time.sleep(21600)#bloqueo de 360min = 360*60seg=21600
+            #navegate
+
+        
     except:
         driver.quit()
 
-
-recovery10(email)
+login(email)

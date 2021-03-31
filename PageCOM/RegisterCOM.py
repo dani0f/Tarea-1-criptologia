@@ -5,11 +5,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-userName = 'U53rN4M3'
-email ="Tarea1Intento2@yopmail.com"
-passWord = "password123"
+userName = 'U53rNdsada'
+email ="Tarea1Intsasoa2@yopmail.com"
+passWord = "password1236"
 
-path = "C:\\Users\\Daniela\\Desktop\\Tarea 1 criptologia\\chromedriver.exe"
+path = "C:\\Users\\Daniela\\Desktop\\Codigos\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
 options.add_argument('--disable-extensions')
@@ -51,11 +51,12 @@ def register(userName,email,passWord):
         element.send_keys(passWord)
         #click in privacy policy
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.XPATH,"/html/body/div[1]/div[1]/div/div[1]/div[2]/div/div/div/div[3]/div/form/label[1]"))        
+            EC.presence_of_element_located((By.XPATH,"/html/body/div[1]/div[1]/div/div[1]/div[2]/div/div/div/div[3]/div/form/label[1]/span[2]/span"))        
         )
         element.click()
+        time.sleep(10)
         element = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR,"#gatsby-focus-wrapper > div > div.Layout__layoutInner__qgpH4 > div.Auth__container__3sO1H > div > div > div > div.AuthGeneral__tabsPanel__2g5bH > div > form > button"))        
+            EC.presence_of_element_located((By.XPATH,"/html/body/div[1]/div[1]/div/div[1]/div[2]/div/div/div/div[3]/div/form/button"))        
         )
         element.click()
     except:

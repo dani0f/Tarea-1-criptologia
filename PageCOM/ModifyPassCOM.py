@@ -9,7 +9,7 @@ userName = "U53rN4M3"
 passWord = "password1234"
 passWordNew = "password12345"
 
-path = "C:\\Users\\Daniela\\Desktop\\Tarea-1-criptologia\\chromedriver.exe"
+path = "C:\\Users\\Daniela\\Desktop\\Codigos\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
 options.add_argument('--disable-extensions')

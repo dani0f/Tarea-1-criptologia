@@ -6,7 +6,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-email ="base64@yopmail.com"
+email1 ="registrodeusuario"
+email2="@yopmail.com"
 path = "C:\\Users\\Daniela\\Desktop\\Codigos\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
@@ -15,12 +16,13 @@ options.add_argument('--disable-extensions')
 driver = webdriver.Chrome(path,chrome_options=options )
 
 driver.get("https://tibiachile.cl")
-def recovery10(email):
+def recovery10Distint(email1,email2):
+    
     link = driver.find_element_by_xpath("/html/body/div[2]/div/div/a")
     link.click()
-
     try: 
-        for _ in range(10):
+        for i in range(10):
+            email=email1+str(i)+email2
             #navegate
             element = WebDriverWait(driver,10).until(
                 EC.presence_of_element_located((By.LINK_TEXT,"Entrar"))        
@@ -41,10 +43,8 @@ def recovery10(email):
                 EC.presence_of_element_located((By.XPATH,"/html/body/div/div[1]/div[2]/div[2]/form/fieldset/p[2]/input"))        
             )
             element.click()
-            #Quitar el comentario siguiente para esperar las 6 horas
-            #time.sleep(21600)#bloqueo de 360min = 360*60seg=21600
     except:
         driver.quit()
 
 
-recovery10(email)
+recovery10Distint(email1,email2)

@@ -7,10 +7,10 @@ import time
 
 firstName="Juanito"
 lastName="Perez"
-email ="modifypasstarea0@yopmail.com"
+email ="registrodeusuario2@yopmail.com"
 passWord = "password123"
 
-path = "C:\\Users\\Daniela\\Desktop\\Tarea-1-criptologia\\chromedriver.exe"
+path = "C:\\Users\\Daniela\\Desktop\\Codigos\\chromedriver.exe"
 options =  webdriver.ChromeOptions()
 options.add_argument('--start-maximized')
 options.add_argument('--disable-extensions')
