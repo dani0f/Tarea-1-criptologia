@@ -42,7 +42,7 @@ def recovery10(email):
             )
             element.click()
             #Quitar el comentario siguiente para esperar las 6 horas
-            #time.sleep(21600)#bloqueo de 360min = 360*60seg=21600
+            time.sleep(21600)#bloqueo de 360min = 360*60seg=21600
     except:
         driver.quit()
 

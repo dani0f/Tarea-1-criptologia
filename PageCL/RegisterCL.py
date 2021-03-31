@@ -7,7 +7,7 @@ import time
 
 firstName="Juanito"
 lastName="Perez"
-email ="registrodeusuario2@yopmail.com"
+email ="registrodeusuario9999@yopmail.com"
 passWord = "password123"
 
 path = "C:\\Users\\Daniela\\Desktop\\Codigos\\chromedriver.exe"
